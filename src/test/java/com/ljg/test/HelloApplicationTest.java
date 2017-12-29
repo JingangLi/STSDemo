@@ -11,8 +11,6 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.RequestBuilder;
-import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
@@ -32,10 +30,9 @@ public class HelloApplicationTest {
 	
 	@Test
 	public void hello() throws Exception {
-		mvc.perform( (RequestBuilder) ((ResultActions) MockMvcRequestBuilders.get("/hello")
-				.accept( MediaType.APPLICATION_JSON))
+		mvc.perform( MockMvcRequestBuilders.get("/hello").accept( MediaType.APPLICATION_JSON ) )
 				.andExpect( status().isOk() )
-				.andExpect( content().string( "ljg" ) ) 
-				);
+				.andExpect( status().isOk() )
+				.andExpect( content().string( HelloController.strHelloWorld ) ) ;
 	}
 }
