@@ -30,6 +30,7 @@ public class HelloController {
 				logger.info( serviceInfo );
 			}
 		}
+
 		return strHelloWorld + "\n" + serviceInfo;
 	}
 }
