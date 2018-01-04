@@ -26,7 +26,7 @@ public class HelloController {
 		List<String> serviceList = client.getServices();
 		for ( String serviceId : serviceList ) {
 			for ( ServiceInstance instance : client.getInstances( serviceId ) ) {
-				serviceInfo += "ELLLJJJ Service name: " + instance.getHost() + " Service Id: " + instance.getServiceId() + "\n";  
+				serviceInfo += "[Service name: " + instance.getHost() + " --- Service Id: " + instance.getServiceId() + ":" +instance.getPort() + "] ";  
 				logger.info( serviceInfo );
 			}
 		}
